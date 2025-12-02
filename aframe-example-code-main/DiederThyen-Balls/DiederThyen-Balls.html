@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DiederThyen-balls</title>
+    <title>DiederThyen-Balls</title>
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
   </head>
 
   <body>
     <a-scene>
+
+
       <a-assets>
         <img id="floorTex" src="pexels-pixabay-158826.jpg">
         <img id="wallTex" src="pexels-pixabay-266526.jpg">
@@ -17,10 +19,13 @@
         <a-asset-item id="model2" src="Korean BBQ Wings - Food - Chicken.glb"></a-asset-item>
       </a-assets>
 
+
+
       <!--Floor -->
       <a-plane rotation="-90 0 0" width="500" height="500"
                src="#floorTex" material="repeat: 3 3; roughness: 1">
       </a-plane>
+
 
       <!--Floating shapes -->
       <a-box position="-5 7 -8" rotation="45 45 0" width="2" height="2" depth="2"
@@ -46,7 +51,8 @@
                      animation="property: rotation; to: 360 0 360; loop: true; dur: 7000; easing: linear">
       </a-tetrahedron>
 
-      <!-- Background shapes -->
+
+      <!-- Background shapes why nottt -->
       <a-box position="-8 5 -20" rotation="0 45 45" width="3" height="3" depth="3" color="#E67E22" opacity="0.7"
              animation="property: rotation; to: 360 405 405; loop: true; dur: 12000; easing: linear">
       </a-box>
@@ -58,16 +64,20 @@
       <!--platform -->
       <a-cylinder position="0 0.2 -5" radius="3" height="0.4" color="#34495E"></a-cylinder>
 
+
       <!--3D models -->
       <a-entity gltf-model="#model1" position="-4 1 -8" rotation="0 125 0" scale="1 1 1"></a-entity>
       <a-entity gltf-model="#model2" position="4 1 -8" rotation="0 45 45" scale="10 10 10"></a-entity>
+
 
       <!-- walls -->
       <a-box position="0 3 -25" width="30" height="8" depth="0.5" color="#16A085" opacity="0.8"></a-box>
       <a-box position="-12 3 -12" rotation="0 90 0" width="26" height="8" depth="0.5" color="#8E44AD" opacity="0.8"></a-box>
       <a-box position="12 3 -12" rotation="0 90 0" width="26" height="8" depth="0.5" color="#D35400" opacity="0.8"></a-box>
 
+      <!-- sky -->
       <a-sky src="#skyTex"></a-sky>
+
     </a-scene>
   </body>
 </html>
