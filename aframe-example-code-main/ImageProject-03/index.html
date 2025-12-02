@@ -1,15 +1,73 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"> </script>
+    <title>DiederThyen-balls</title>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
   </head>
+
   <body>
     <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
+      <a-assets>
+        <img id="floorTex" src="pexels-pixabay-158826.jpg">
+        <img id="wallTex" src="pexels-pixabay-266526.jpg">
+        <img id="skyTex" src="3d-rendering-futuristic-background-with-circular-shapes-neon-purple-lights.jpg">
+
+        <!-- 3D models -->
+        <a-asset-item id="model1" src="Bread.glb"></a-asset-item>
+        <a-asset-item id="model2" src="Korean BBQ Wings - Food - Chicken.glb"></a-asset-item>
+      </a-assets>
+
+      <!--Floor -->
+      <a-plane rotation="-90 0 0" width="500" height="500"
+               src="#floorTex" material="repeat: 3 3; roughness: 1">
+      </a-plane>
+
+      <!--Floating shapes -->
+      <a-box position="-5 7 -8" rotation="45 45 0" width="2" height="2" depth="2"
+             material="src: #wallTex; repeat: 2 2; roughness: 0.8"
+             animation="property: rotation; to: 45 405 0; loop: true; dur: 8000; easing: linear">
+      </a-box>
+
+      <a-octahedron position="5 3 -10" radius="1.5" color="#3498DB"
+                    animation="property: position; to: 5 4 -10; dir: alternate; loop: true; dur: 3000">
+      </a-octahedron>
+
+      <a-torus position="-3 2.5 -12" radius="1.5" radius-tubular="0.3"
+               material="src: #wallTex; repeat: 1 1; roughness: 0.7"
+               animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear">
+      </a-torus>
+
+      <a-dodecahedron position="0 4 -15" radius="1.2"
+                      material="src: #wallTex; repeat: 2 2; roughness: 0.8"
+                      animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear">
+      </a-dodecahedron>
+
+      <a-tetrahedron position="4 1.5 -6" radius="1" color="#1ABC9C"
+                     animation="property: rotation; to: 360 0 360; loop: true; dur: 7000; easing: linear">
+      </a-tetrahedron>
+
+      <!-- Background shapes -->
+      <a-box position="-8 5 -20" rotation="0 45 45" width="3" height="3" depth="3" color="#E67E22" opacity="0.7"
+             animation="property: rotation; to: 360 405 405; loop: true; dur: 12000; easing: linear">
+      </a-box>
+
+      <a-sphere position="8 6 -18" radius="1.8" color="#E91E63" opacity="0.6"
+                animation="property: position; to: 8 7 -18; dir: alternate; loop: true; dur: 4000">
+      </a-sphere>
+
+      <!--platform -->
+      <a-cylinder position="0 0.2 -5" radius="3" height="0.4" color="#34495E"></a-cylinder>
+
+      <!--3D models -->
+      <a-entity gltf-model="#model1" position="-4 1 -8" rotation="0 125 0" scale="1 1 1"></a-entity>
+      <a-entity gltf-model="#model2" position="4 1 -8" rotation="0 45 45" scale="10 10 10"></a-entity>
+
+      <!-- walls -->
+      <a-box position="0 3 -25" width="30" height="8" depth="0.5" color="#16A085" opacity="0.8"></a-box>
+      <a-box position="-12 3 -12" rotation="0 90 0" width="26" height="8" depth="0.5" color="#8E44AD" opacity="0.8"></a-box>
+      <a-box position="12 3 -12" rotation="0 90 0" width="26" height="8" depth="0.5" color="#D35400" opacity="0.8"></a-box>
+
+      <a-sky src="#skyTex"></a-sky>
     </a-scene>
   </body>
 </html>
